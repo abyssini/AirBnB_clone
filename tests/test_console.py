@@ -12,6 +12,7 @@ from models import storage
 from models.base_model import BaseModel
 from tests import clear_stream
 
+
 class TestHBNBCommand(unittest.TestCase):
     """Represents the test class for the HBNBCommand class.
     """
@@ -46,13 +47,13 @@ class TestHBNBCommand(unittest.TestCase):
                 cons.onecmd('quit')
             self.assertEqual(ex.exception.code, 0)
 
-def test_console_v_0_1(self):
+    def test_console_v_0_1(self):
         """Tests the features of version 0.1 of the console.
         """
         with patch('sys.stdout', new=StringIO()) as cout:
             cons = HBNBCommand()
             if os.path.isfile('file.json'):
-                os.unlink('file.json')
+os.unlink('file.json')
         # region The create command
             # missing class name
             clear_stream(cout)
@@ -145,7 +146,7 @@ def test_console_v_0_1(self):
             )
         # endregion
 
-def test_user(self):
+    def test_user(self):
         """Tests the show, create, destroy, update, and all
         commands with a User model.
         """
@@ -193,7 +194,7 @@ def test_user(self):
             cons.onecmd(cmd_line)
             self.assertIn(mdl_id, cout.getvalue())
 
-            def test_class_count(self):
+    def test_class_count(self):
         """Tests the ClassName.count() feature.
         """
         with patch('sys.stdout', new=StringIO()) as cout:
@@ -224,8 +225,7 @@ def test_user(self):
             cons.onecmd(cmd_line)
             self.assertIn(mdl_id, cout.getvalue())
 
-
-def test_class_destroy(self):
+    def test_class_destroy(self):
         """Tests the ClassName.destroy(id) feature.
         """
         with patch('sys.stdout', new=StringIO()) as cout:
@@ -278,4 +278,4 @@ def test_class_destroy(self):
             self.assertIn(
                 "'name': 'Basketball court'",
                 cout.getvalue()
-                )
+            )
